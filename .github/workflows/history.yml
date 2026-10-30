@@ -1,0 +1,66 @@
+# Riverwatcher's long downloads from the Environment Agency (PLAN stage 1): each gauge's
+# history from the Hydrology archive (`npm run history`), and the backfill of day files
+# (`npm run backfill`). "Run workflow" only; no schedule. The code comes from
+# JohnBaish/riverwatcher (public, so no key is needed), at the branch given; the data is
+# written here and committed, even if the run stops part-way. Each script carries on where
+# it stopped, so if a run ends before everything's done (it stops itself after about five
+# and a half hours), run it again.
+name: History
+
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: 'What to download'
+        type: choice
+        options: [both, history, backfill]
+        default: both
+      code:
+        description: 'Branch of JohnBaish/riverwatcher to run'
+        default: main
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data
+  cancel-in-progress: false
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/checkout@v6
+        with:
+          repository: JohnBaish/riverwatcher
+          ref: ${{ inputs.code }}
+          path: code
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Each gauge's history (two archive requests a gauge, one at a time)
+        if: inputs.task != 'backfill'
+        run: cd code && RW_MINUTES=200 node scripts/build-history.ts ../data
+
+      - name: The day files (the archive a date at a time, then four weeks of live readings)
+        if: inputs.task != 'history' && !cancelled()
+        run: cd code && RW_MINUTES=120 node scripts/backfill.ts ../data
+
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data
+          if git diff --cached --quiet; then
+            echo 'Nothing new to commit.'
+            exit 0
+          fi
+          git commit -q -m "Data: ${{ inputs.task }} $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
