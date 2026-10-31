@@ -13,7 +13,7 @@ on:
       task:
         description: 'What to download'
         type: choice
-        options: [both, history, backfill]
+        options: [both, history, backfill, fill]
         default: both
       code:
         description: 'Branch of JohnBaish/riverwatcher to run'
@@ -29,7 +29,7 @@ concurrency:
 jobs:
   download:
     runs-on: ubuntu-latest
-    timeout-minutes: 350
+    timeout-minutes: 355
     steps:
       - uses: actions/checkout@v6
 
@@ -44,12 +44,16 @@ jobs:
           node-version: 24
 
       - name: Each gauge's history (two archive requests a gauge, one at a time)
-        if: inputs.task != 'backfill'
+        if: inputs.task == 'both' || inputs.task == 'history'
         run: cd code && RW_MINUTES=200 node scripts/build-history.ts ../data
 
       - name: The day files (the archive a date at a time, then four weeks of live readings)
-        if: inputs.task != 'history' && !cancelled()
+        if: (inputs.task == 'both' || inputs.task == 'backfill') && !cancelled()
         run: cd code && RW_MINUTES=120 node scripts/backfill.ts ../data
+
+      - name: Fill in where the daily figures stop early, from the 15-minute readings
+        if: inputs.task == 'fill'
+        run: cd code && RW_FILL=1 RW_MINUTES=320 node scripts/build-history.ts ../data
 
       - name: Commit
         if: always()
