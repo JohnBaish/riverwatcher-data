@@ -17,4 +17,5 @@
 {"at":"2026-11-01T16:10:34.875Z","stateFound":true,"readings":2888,"gauges":2888,"silent":71,"floods":1,"newAreas":1,"seconds":2},
 {"at":"2026-11-01T17:10:34.171Z","stateFound":true,"readings":2888,"gauges":2888,"silent":59,"floods":1,"newAreas":0,"seconds":58},
 {"at":"2026-11-01T18:10:36.628Z","stateFound":true,"readings":2888,"gauges":2888,"silent":65,"floods":1,"newAreas":0,"seconds":3},
-{"at":"2026-11-01T19:10:33.609Z","stateFound":true,"readings":2888,"gauges":2888,"silent":51,"floods":1,"newAreas":0,"seconds":1}]
+{"at":"2026-11-01T19:10:33.609Z","stateFound":true,"readings":2888,"gauges":2888,"silent":51,"floods":1,"newAreas":0,"seconds":1},
+{"at":"2026-11-01T20:10:35.044Z","stateFound":true,"readings":2888,"gauges":2888,"silent":73,"floods":1,"newAreas":0,"seconds":4}]
