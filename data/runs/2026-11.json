@@ -139,4 +139,5 @@
 {"at":"2026-11-06T20:10:39.350Z","stateFound":true,"readings":2888,"gauges":2888,"silent":75,"floods":0,"newAreas":0,"seconds":2},
 {"at":"2026-11-06T21:10:35.791Z","stateFound":true,"readings":2888,"gauges":2888,"silent":100,"floods":0,"newAreas":0,"seconds":2},
 {"at":"2026-11-06T22:10:41.341Z","stateFound":true,"readings":2888,"gauges":2888,"silent":119,"floods":0,"newAreas":0,"seconds":3},
-{"at":"2026-11-06T23:10:37.135Z","stateFound":true,"readings":2888,"gauges":2888,"silent":74,"floods":0,"newAreas":0,"seconds":10}]
+{"at":"2026-11-06T23:10:37.135Z","stateFound":true,"readings":2888,"gauges":2888,"silent":74,"floods":0,"newAreas":0,"seconds":10},
+{"at":"2026-11-07T00:10:35.846Z","stateFound":true,"readings":2888,"gauges":2888,"silent":83,"floods":0,"newAreas":0,"dayFile":{"date":"2026-11-06","pages":14,"rows":140000,"finished":false,"stopped":"https://environment.data.gov.uk/flood-monitoring/data/readings.csv?parameter=level&startdate=2026-11-06&enddate=2026-11-06&_limit=10000&_offset=140000: HTTP 503"},"seconds":673}]
