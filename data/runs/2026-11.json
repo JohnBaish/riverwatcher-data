@@ -371,4 +371,5 @@
 {"at":"2026-11-16T13:10:41.137Z","stateFound":true,"readings":2888,"gauges":2888,"silent":102,"floods":1,"newAreas":0,"seconds":2},
 {"at":"2026-11-16T14:10:34.237Z","stateFound":true,"readings":2888,"gauges":2888,"silent":104,"floods":1,"newAreas":0,"seconds":3},
 {"at":"2026-11-16T15:10:43.103Z","stateFound":true,"readings":2888,"gauges":2888,"silent":92,"floods":2,"newAreas":1,"seconds":4},
-{"at":"2026-11-16T16:10:38.604Z","stateFound":true,"readings":2888,"gauges":2888,"silent":91,"floods":3,"newAreas":1,"seconds":8}]
+{"at":"2026-11-16T16:10:38.604Z","stateFound":true,"readings":2888,"gauges":2888,"silent":91,"floods":3,"newAreas":1,"seconds":8},
+{"at":"2026-11-16T17:10:40.504Z","stateFound":true,"readings":2887,"gauges":2887,"silent":82,"floods":4,"newAreas":1,"seconds":4}]
