@@ -498,4 +498,5 @@
 {"at":"2026-11-21T21:10:36.060Z","stateFound":true,"readings":2888,"gauges":2888,"silent":80,"floods":26,"newAreas":0,"seconds":2},
 {"at":"2026-11-21T22:10:39.538Z","stateFound":true,"readings":2888,"gauges":2888,"silent":95,"floods":26,"newAreas":0,"seconds":71},
 {"at":"2026-11-21T23:10:36.144Z","stateFound":true,"readings":2888,"gauges":2888,"silent":89,"floods":26,"newAreas":0,"seconds":4},
-{"at":"2026-11-22T00:10:37.856Z","stateFound":true,"readings":2888,"gauges":2888,"silent":99,"floods":26,"newAreas":0,"dayFile":{"date":"2026-11-21","pages":25,"rows":250000,"finished":false,"stopped":"out of time"},"seconds":1203}]
+{"at":"2026-11-22T00:10:37.856Z","stateFound":true,"readings":2888,"gauges":2888,"silent":99,"floods":26,"newAreas":0,"dayFile":{"date":"2026-11-21","pages":25,"rows":250000,"finished":false,"stopped":"out of time"},"seconds":1203},
+{"at":"2026-11-22T01:10:38.744Z","stateFound":true,"readings":2888,"gauges":2888,"silent":128,"floods":26,"newAreas":0,"dayFile":{"date":"2026-11-21","pages":38,"rows":375471,"finished":true},"quiet":18,"removed":1,"seconds":808}]
